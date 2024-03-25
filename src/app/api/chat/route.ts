@@ -16,6 +16,8 @@ const openai = new OpenAIApi(config)
 
 export async function POST(req: Request) {
     try {
+        console.log("On the chat route page and below is the key and name pair for file");
+
         const {messages, chatId} = await req.json()
         const _chats = await db.select().from(chats).where(eq(chats.id, chatId));
         if(_chats.length != 1) {
